@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード認証 - Slack × LINE WORKS 統合提案書</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 15px;
+            display: none;
+        }
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="login-form">
+            <h1>🔐 認証が必要です</h1>
+            <p>Slack × LINE WORKS 統合提案書を閲覧するにはパスワードを入力してください</p>
+            <input type="password" id="password" placeholder="パスワードを入力" required>
+            <button onclick="checkPassword()">アクセス</button>
+            <div class="error" id="error">パスワードが正しくありません</div>
+        </div>
+        
+        <div id="content" class="content">
+            <!-- ここに提案書のHTMLが入ります -->
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'betimo2025';
+            
+            if (password === correctPassword) {
+                document.getElementById('login-form').style.display = 'none';
+                loadProposal();
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+        
+        function loadProposal() {
+            // 提案書のHTMLを読み込み
+            fetch('proposal.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.body.innerHTML = html;
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = '<p>提案書の読み込みに失敗しました。</p>';
+                    document.getElementById('content').style.display = 'block';
+                });
+        }
+        
+        // Enterキーでログイン
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
