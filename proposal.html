@@ -103,25 +103,50 @@
             margin: 20px 0;
         }
 
-        .pricing-table th,
-        .pricing-table td {
+        .pricing-table th {
             padding: 12px;
-            text-align: left;
+            text-align: center;
             border: 1px solid #ddd;
-        }
-        
-        .pricing-table td:first-child {
+            background-color: #667eea;
+            color: white;
             font-weight: bold;
         }
         
+        .pricing-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        
+        /* 項目名列（左寄せ） */
+        .pricing-table td.item {
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        /* 金額列（右寄せ） */
+        .pricing-table td.price {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        /* 数値列（右寄せ） */
         .pricing-table td.number {
             text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* ステータス・強調列（中央寄せ） */
+        .pricing-table td.center {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* 説明文列（左寄せ） */
+        .pricing-table td.text {
+            text-align: left;
         }
 
-        .pricing-table th {
-            background-color: #667eea;
-            color: white;
-        }
 
         .pricing-table tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -133,6 +158,19 @@
             border-radius: 5px;
             border-left: 4px solid #2196f3;
             margin: 15px 0;
+            text-align: left;
+        }
+        
+        /* 重要数値のハイライト表示 */
+        .highlight-number {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            background-color: #f0f4ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
         }
 
         .tech-spec {
@@ -327,40 +365,40 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>1チャンネル + DM</strong></td>
-                        <td>4日</td>
-                        <td>¥240,000</td>
-                        <td>¥40,000</td>
-                        <td>¥12,000</td>
-                        <td>¥7,000</td>
-                        <td style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
+                        <td class="item"><strong>1チャンネル + DM</strong></td>
+                        <td class="number">4日</td>
+                        <td class="price">¥240,000</td>
+                        <td class="price">¥40,000</td>
+                        <td class="price">¥12,000</td>
+                        <td class="price">¥7,000</td>
+                        <td class="center" style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>3-5チャンネル + DM</strong></td>
-                        <td>7日</td>
-                        <td>¥420,000</td>
-                        <td>¥50,000</td>
-                        <td>¥18,000</td>
-                        <td>¥8,000</td>
-                        <td style="color: #4caf50;">⭐⭐⭐⭐</td>
+                        <td class="item"><strong>3-5チャンネル + DM</strong></td>
+                        <td class="number">7日</td>
+                        <td class="price">¥420,000</td>
+                        <td class="price">¥50,000</td>
+                        <td class="price">¥18,000</td>
+                        <td class="price">¥8,000</td>
+                        <td class="center" style="color: #4caf50;">⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>10チャンネル + DM</strong></td>
-                        <td>14日</td>
-                        <td>¥840,000</td>
-                        <td>¥100,000</td>
-                        <td>¥30,000</td>
-                        <td>¥10,000</td>
-                        <td style="color: #ff9800;">⭐⭐⭐</td>
+                        <td class="item"><strong>10チャンネル + DM</strong></td>
+                        <td class="number">14日</td>
+                        <td class="price">¥840,000</td>
+                        <td class="price">¥100,000</td>
+                        <td class="price">¥30,000</td>
+                        <td class="price">¥10,000</td>
+                        <td class="center" style="color: #ff9800;">⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>20+ チャンネル + DM</strong></td>
-                        <td>25日</td>
-                        <td>¥1,500,000</td>
-                        <td>¥350,000</td>
-                        <td>¥50,000</td>
-                        <td>¥15,000</td>
-                        <td style="color: #f44336;">⭐⭐</td>
+                        <td class="item"><strong>20+ チャンネル + DM</strong></td>
+                        <td class="number">25日</td>
+                        <td class="price">¥1,500,000</td>
+                        <td class="price">¥350,000</td>
+                        <td class="price">¥50,000</td>
+                        <td class="price">¥15,000</td>
+                        <td class="center" style="color: #f44336;">⭐⭐</td>
                     </tr>
                 </tbody>
             </table>
@@ -429,7 +467,7 @@
                         <td>¥12,000-18,000</td>
                         <td>¥18,000-25,000</td>
                         <td>なし（フル機能）</td>
-                        <td style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
+                        <td class="center" style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
                         <td><strong>GCP</strong></td>
@@ -437,7 +475,7 @@
                         <td>¥11,000-16,000</td>
                         <td>¥16,000-22,000</td>
                         <td>なし（フル機能）</td>
-                        <td style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
+                        <td class="center" style="color: #4caf50;">⭐⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
                         <td><strong>Vercel + Supabase</strong></td>
@@ -461,7 +499,7 @@
                         <td>¥8,000-12,000</td>
                         <td>¥12,000-20,000</td>
                         <td>スリープモード有</td>
-                        <td style="color: #ff9800;">⭐⭐⭐</td>
+                        <td class="center" style="color: #ff9800;">⭐⭐⭐</td>
                     </tr>
                     <tr>
                         <td><strong>さくらのVPS</strong></td>
@@ -469,7 +507,7 @@
                         <td>¥4,000-7,000</td>
                         <td>¥6,000-10,000</td>
                         <td>自動スケール不可<br>高可用性制限</td>
-                        <td style="color: #ff9800;">⭐⭐⭐</td>
+                        <td class="center" style="color: #ff9800;">⭐⭐⭐</td>
                     </tr>
                 </tbody>
             </table>
