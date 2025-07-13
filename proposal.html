@@ -16,6 +16,17 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+            text-align: left;
+        }
+        
+        p, li {
+            text-align: left;
+            margin-bottom: 12px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
 
         .container {
@@ -58,6 +69,7 @@
             margin-bottom: 20px;
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
+            text-align: left;
         }
 
         .section h3 {
@@ -94,8 +106,16 @@
         .pricing-table th,
         .pricing-table td {
             padding: 12px;
-            text-align: center;
+            text-align: left;
             border: 1px solid #ddd;
+        }
+        
+        .pricing-table td:first-child {
+            font-weight: bold;
+        }
+        
+        .pricing-table td.number {
+            text-align: right;
         }
 
         .pricing-table th {
