@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPJ Betimo 運営体制 - 取締役会資料</title>
+    <style>
+        body {
+            font-family: 'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', sans-serif;
+            margin: 0;
+            padding: 15px;
+            background: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #003366;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0066cc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: #003366;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .section-content {
+            padding: 15px;
+        }
+        
+        /* 組織体制テーブル */
+        .org-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .org-table th, .org-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .org-table th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .org-summary {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #003366;
+        }
+        
+        /* タスク一覧スタイル */
+        .task-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .task-table td, .task-table th {
+            border: 1px solid #ddd;
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+        
+        .phase-header {
+            background: #0066cc;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .category-cell {
+            background: #f5f5f5;
+            font-weight: bold;
+            text-align: center;
+            width: 80px;
+        }
+        
+        .task-cell {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .partner-cell {
+            text-align: center;
+            font-weight: bold;
+            background: #f8f8f8;
+            width: 100px;
+        }
+        
+        .volume-info {
+            color: #ff6600;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .task-detail {
+            margin-bottom: 2px;
+        }
+        
+        /* KPIセクション */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .kpi-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .kpi-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        /* タイムライン */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        .timeline-item.active {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        /* フッター注釈 */
+        .footer-notes {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-left: 4px solid #0066cc;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .footer-notes strong {
+            color: #333;
+        }
+        
+        /* 部門タグ */
+        .dept-tag {
+            display: inline-block;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 3px;
+        }
+        
+        .dept-dev { background: #e3f2fd; color: #1976d2; }
+        .dept-mkt { background: #fff3e0; color: #f57c00; }
+        .dept-betimo { background: #e8f5e9; color: #388e3c; }
+        
+        /* 監視詳細ボックス */
+        .monitor-box {
+            background: #fff8dc;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .monitor-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .monitor-table th, .monitor-table td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+        }
+        
+        .monitor-table th {
+            background: #ff9800;
+            color: white;
+        }
+        
+        /* 運営フロー */
+        .flow-diagram {
+            margin: 20px 0;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .flow-step {
+            display: inline-block;
+            background: white;
+            border: 2px solid #0066cc;
+            border-radius: 6px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        .flow-arrow {
+            display: inline-block;
+            font-size: 20px;
+            color: #0066cc;
+            margin: 0 5px;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            
+            .container {
+                max-width: 100%;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KPJ Betimo（競輪デジタル投票）運営体制概要（2025年10月ソフトローンチ）</h1>
+        
+        <div class="timeline">
+            <div class="timeline-item">準備期（7-9月）</div>
+            <div class="timeline-item active">ソフトローンチ（10月〜）</div>
+            <div class="timeline-item">本格展開（2026年3月〜）</div>
+        </div>
+        
+        <div class="content-grid">
+            <!-- 左側：組織体制とKPI -->
+            <div>
+                <div class="section">
+                    <div class="section-header">運営組織体制</div>
+                    <div class="section-content">
+                        <table class="org-table">
+                            <tr>
+                                <th width="25%">役割</th>
+                                <th width="20%">担当者</th>
+                                <th width="55%">主要責務</th>
+                            </tr>
+                            <tr>
+                                <td><strong>統括</strong></td>
+                                <td>行友</td>
+                                <td>全体管理・JKA連携・進捗管理</td>
+                            </tr>
+                            <tr>
+                                <td><strong>運営管理</strong></td>
+                                <td>中根・Betimoプロパー（予定）</td>
+                                <td>KPI管理・CS統括・Liquid審査</td>
+                            </tr>
+                            <tr>
+                                <td><strong>外注管理</strong></td>
+                                <td>本橋</td>
+                                <td>契約管理・人員配置・外部調整</td>
+                            </tr>
+                            <tr>
+                                <td><strong>技術</strong></td>
+                                <td>竹内＋派遣1名<br><span style="font-size:11px;color:#666;">（ウィットワン）</span></td>
+                                <td>メンテナンス・管理ツール運用</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CRM</strong></td>
+                                <td>花登＋派遣1名<br><span style="font-size:11px;color:#666;">（ウィットワン）</span></td>
+                                <td>お知らせ配信・顧客データ管理</td>
+                            </tr>
+                        </table>
+                        <div class="org-summary">
+                            社内6名 ＋ 派遣2-3名 ＝ 計8-9名体制
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section" style="margin-top: 20px;">
+                    <div class="section-header">重点KPI（月次目標）</div>
+                    <div class="section-content">
+                        <div class="kpi-grid">
+                            <div class="kpi-item">
+                                <div class="kpi-label">新規登録</div>
+                                <div class="kpi-value">2万人</div>
+                            </div>
+                            <div class="kpi-item">
+                                <div class="kpi-label">CS問合せ</div>
+                                <div class="kpi-value">400件</div>
+                            </div>
+                            <div class="kpi-item">
+                                <div class="kpi-label">エスカレーション</div>
+                                <div class="kpi-value">20件</div>
+                            </div>
+                        </div>
+                        <table class="org-table" style="margin-top: 15px;">
+                            <tr>
+                                <th>外部パートナー</th>
+                                <th>担当領域</th>
+                                <th>備考</th>
+                            </tr>
+                            <tr>
+                                <td>ベルシステム24</td>
+                                <td>CS一次受付</td>
+                                <td>ソフトローンチ期間中にトークスクリプトをブラッシュアップ</td>
+                            </tr>
+                            <tr>
+                                <td>ポールトゥウィン</td>
+                                <td>QA・品質保証</td>
+                                <td>機能更新時に一部活用、基本は運営・CSチームが実施</td>
+                            </tr>
+                            <tr>
+                                <td>監視業者（選定中）</td>
+                                <td>監視・車券操作</td>
+                                <td>段階的に24時間体制へ移行</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="flow-diagram">
+                    <h3 style="margin-top: 0; color: #003366;">シンプルな運営フロー</h3>
+                    <div class="flow-step">ユーザー登録</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">投票開始</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">CS対応</div>
+                </div>
+            </div>
+            
+            <!-- 右側：タスク一覧 -->
+            <div>
+                <div class="section">
+                    <div class="section-header">主要タスクと作業ボリューム</div>
+                    <div class="section-content">
+                        <table class="task-table">
+                            <tr>
+                                <th colspan="2" class="phase-header">サービス前（〜9月）</th>
+                                <th colspan="2" class="phase-header">サービス後（10月〜）</th>
+                            </tr>
+                            <tr>
+                                <td class="category-cell" rowspan="3">運営</td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・契約関連整備・外注管理</div>
+                                    <div class="task-detail">・人員配置計画・全体スケジュール</div>
+                                    <div class="task-detail">・JKA連携（VIS関連）</div>
+                                    <div class="task-detail">・9月：ソフトローンチGo/No-Go判定</div>
+                                    <div class="task-detail">・10月末：プロモーション策定確定</div>
+                                </td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・プロジェクト全体統括</div>
+                                    <div class="task-detail">・KPI／レポート作成</div>
+                                    <div class="task-detail">・運営計画立案（改善サイクル）</div>
+                                    <div class="task-detail">・マーケ・コンテンツ定例 <span class="volume-info">毎週</span></div>
+                                </td>
+                                <td rowspan="3" class="partner-cell">
+                                    ポールトゥウィン<br>
+                                    （QA）<br>
+                                    <br>
+                                    <span style="font-size:11px;color:#666;">※機能更新時<br>一部活用</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="task-cell">
+                                    <div class="task-detail">・リハーサル実施・JKA試験準備</div>
+                                    <div class="task-detail">・管理ツール開発進行<span class="dept-tag dept-dev">DEV</span></div>
+                                    <div class="task-detail">・ストア審査提出準備</div>
+                                </td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・メンテナンス <span class="volume-info">月1回？</span></div>
+                                    <div class="task-detail">・おすすめレース設定（CMS） <span class="volume-info">毎日10-15件</span></div>
+                                    <div class="task-detail">・レース開催日設定 <span class="volume-info">3ヶ月毎</span></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="task-cell">
+                                    <div class="task-detail">・お知らせ／バナー準備</div>
+                                    <div class="task-detail">・SNS運用ポリシー策定<span class="dept-tag dept-mkt">MKT</span></div>
+                                    <div class="task-detail">・キャンペーン企画</div>
+                                </td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・お知らせ作成／配信（CRM）</div>
+                                    <div class="task-detail">・プロモーション<span class="dept-tag dept-mkt">MKT</span></div>
+                                    <div class="task-detail">・新規施策・入金施策<span class="dept-tag dept-mkt">MKT</span></div>
+                                    <div class="task-detail">・再課金施策<span class="dept-tag dept-mkt">MKT</span></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="category-cell">CS</td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・マニュアル作成・ヘルプ作成</div>
+                                    <div class="task-detail">・規約関連・プライバシーポリシー<span class="dept-tag dept-betimo">Betimo管理</span></div>
+                                    <div class="task-detail">・ギャンブル依存症対策検討</div>
+                                    <div class="task-detail">・CSテンプレート作成</div>
+                                </td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・お問い合わせ一次受け <span class="volume-info">月400件</span></div>
+                                    <div class="task-detail">・CSエスカレーション <span class="volume-info">月20件</span></div>
+                                    <div class="task-detail">・Liquid対応 <span class="volume-info">月200件</span></div>
+                                    <div class="task-detail">・リグレッションテスト <span class="volume-info">機能更新時</span></div>
+                                    <div class="task-detail">・休日稼働（土日祝） <span class="volume-info">1名ずつ</span></div>
+                                </td>
+                                <td class="partner-cell">
+                                    ベルシステム24<br>
+                                    （CS外注）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="category-cell">監視</td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・監視体制の段階的構築</div>
+                                    <div class="task-detail">・監視手順書作成</div>
+                                    <div class="task-detail">・障害対応フロー策定<span class="dept-tag dept-dev">DEV</span></div>
+                                </td>
+                                <td class="task-cell">
+                                    <div class="task-detail">・監視運用 <span class="volume-info">段階的に24時間へ</span></div>
+                                    <div class="task-detail">・車券販売監視・開始・締め</div>
+                                    <div class="task-detail">・翌日販売場設定</div>
+                                    <div class="task-detail">・障害一次対応<span class="dept-tag dept-dev">DEV</span></div>
+                                </td>
+                                <td class="partner-cell">
+                                    監視業者<br>
+                                    （選定中）
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="monitor-box">
+            <strong>🚨 監視業務の詳細（なぜ監視が必要か）</strong>
+            <p style="margin: 10px 0;">
+                競輪は8:30〜23:30の間、全国各地で開催。<strong>KEIRIN.JPは7:00からインターネット投票受付開始、各レースは投票締切5分前</strong>まで車券購入可能。
+                確実な締切処理と販売管理が収益機会の最大化に直結するため、専門的な監視体制が不可欠。
+                <br><span style="color: #d84315; font-weight: bold;">※ 7:00からの監視が必要な理由：KEIRIN.JPのシステムが7:00から稼働開始するため、発売開始と同時に監視を開始し、全ての取引を確実に管理する必要がある</span>
+            </p>
+            <table class="monitor-table">
+                <tr>
+                    <th width="25%">作業項目</th>
+                    <th width="50%">具体的内容</th>
+                    <th width="25%">作業時間</th>
+                </tr>
+                <tr>
+                    <td>車券販売監視</td>
+                    <td>
+                        ・各場のレース販売締切5分前に正しく締められるか目視確認<br>
+                        ・イレギュラー時：電話連絡、投票数取得、JKA送信等
+                    </td>
+                    <td>各レース3分</td>
+                </tr>
+                <tr>
+                    <td>車券販売開始</td>
+                    <td>操作端末起動、全販売場ログ確認、業務開始ボタン押下</td>
+                    <td>5分</td>
+                </tr>
+                <tr>
+                    <td>車券販売締め</td>
+                    <td>全レース締切確認、事故金入力、DAU入力</td>
+                    <td>5分</td>
+                </tr>
+                <tr>
+                    <td>翌日販売場設定</td>
+                    <td>翌日販売予定場選択、VISへデータ送信</td>
+                    <td>5分</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="footer-notes">
+            <strong>重要事項：</strong><br>
+            • 新規登録者数2万人/月、自動認証率99％で算出<br>
+            • Liquid対応：課金したい時にできない状況をなくすことが最重要<br>
+            • 運営部門でカバーできない領域は開発<span class="dept-tag dept-dev">DEV</span>・マーケ<span class="dept-tag dept-mkt">MKT</span>・Betimo管理<span class="dept-tag dept-betimo">Betimo管理</span>部門と連携<br>
+            • マーケ・コンテンツチームとの週次定例でサービスを充実させていく<br>
+            • 12月：本格展開Go/No-Go判定会議<br>
+            • 2026年3月本格ローンチ時は体制を2倍程度に拡充予定（広告投下による問合せ増対応）
+        </div>
+    </div>
+</body>
+</html>
