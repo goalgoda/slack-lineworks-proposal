@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パスワード認証 - Slack × LINE WORKS 統合提案書</title>
+    <title>KPJ Betimo 資料ポータル</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,7 +21,7 @@
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
-            max-width: 400px;
+            max-width: 600px;
             width: 90%;
         }
         h1 {
@@ -29,36 +29,10 @@
             margin-bottom: 30px;
             font-size: 24px;
         }
-        input[type="password"] {
-            width: 100%;
-            padding: 15px;
-            margin: 20px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        button {
-            background: #667eea;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #5a6fd8;
-        }
-        .error {
-            color: #e74c3c;
-            margin-top: 15px;
-            display: none;
-        }
-        .content {
-            display: none;
+        .doc-links {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
         }
         .doc-link {
             display: block;
@@ -69,6 +43,7 @@
             color: #333;
             border: 2px solid transparent;
             transition: all 0.3s;
+            text-align: left;
         }
         .doc-link:hover {
             border-color: #667eea;
@@ -79,79 +54,52 @@
         .doc-link h3 {
             color: #667eea;
             margin: 0 0 10px 0;
+            font-size: 18px;
         }
         .doc-link p {
             margin: 0;
             color: #666;
+            font-size: 14px;
+        }
+        .password-note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #fffde7;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+        .password-note p {
+            margin: 0;
+            color: #856404;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="login-form">
-            <h1>🔐 認証が必要です</h1>
-            <p>資料を閲覧するにはパスワードを入力してください</p>
-            <input type="password" id="password" placeholder="パスワードを入力" required>
-            <button onclick="checkPassword()">アクセス</button>
-            <div class="error" id="error">パスワードが正しくありません</div>
+        <h1>📚 KPJ Betimo 資料ポータル</h1>
+        <p>以下の資料から選択してください</p>
+        
+        <div class="doc-links">
+            <a href="slack-lineworks/" class="doc-link">
+                <h3>💬 Slack × LINE WORKS 統合提案書</h3>
+                <p>完全同期システムの技術提案とコスト見積もり（Zapier版含む）</p>
+            </a>
+            
+            <a href="kpj-integrated/" class="doc-link">
+                <h3>📋 KPJ Betimo 運営体制（統合版）</h3>
+                <p>運営体制の詳細資料 - 1ページ統合版</p>
+            </a>
+            
+            <a href="kpj-multipage/" class="doc-link">
+                <h3>📄 KPJ Betimo 運営体制（複数ページ版）</h3>
+                <p>運営体制の詳細資料 - プレゼンテーション形式</p>
+            </a>
         </div>
         
-        <div id="document-list" style="display: none;">
-            <h1>📚 利用可能な資料</h1>
-            <div style="display: grid; gap: 20px; margin-top: 30px;">
-                <a href="#" onclick="loadDocument('proposal.html')" class="doc-link">
-                    <h3>💬 Slack × LINE WORKS 統合提案書</h3>
-                    <p>完全同期システムの技術提案とコスト見積もり</p>
-                </a>
-                <a href="#" onclick="loadDocument('kpj-integrated.html')" class="doc-link">
-                    <h3>📋 KPJ Betimo 運営体制（統合版）</h3>
-                    <p>運営体制の詳細資料 - 1ページ統合版</p>
-                </a>
-                <a href="#" onclick="loadDocument('kpj-multi-page.html')" class="doc-link">
-                    <h3>📄 KPJ Betimo 運営体制（複数ページ版）</h3>
-                    <p>運営体制の詳細資料 - プレゼンテーション形式</p>
-                </a>
-            </div>
-        </div>
-        
-        <div id="content" class="content">
-            <!-- ここに提案書のHTMLが入ります -->
+        <div class="password-note">
+            <p><strong>🔐 パスワード:</strong> betimo2025（すべての資料共通）</p>
         </div>
     </div>
-
-    <script>
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            const correctPassword = 'betimo2025';
-            
-            if (password === correctPassword) {
-                document.getElementById('login-form').style.display = 'none';
-                document.getElementById('document-list').style.display = 'block';
-            } else {
-                document.getElementById('error').style.display = 'block';
-            }
-        }
-        
-        function loadDocument(filename) {
-            // 資料のHTMLを読み込み
-            document.getElementById('document-list').style.display = 'none';
-            fetch(filename)
-                .then(response => response.text())
-                .then(html => {
-                    document.body.innerHTML = html;
-                })
-                .catch(error => {
-                    document.getElementById('content').innerHTML = '<p>資料の読み込みに失敗しました。</p>';
-                    document.getElementById('content').style.display = 'block';
-                });
-        }
-        
-        // Enterキーでログイン
-        document.getElementById('password').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-    </script>
 </body>
 </html>

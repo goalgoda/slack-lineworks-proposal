@@ -273,6 +273,12 @@
     </style>
 </head>
 <body>
+    <script>
+        // パスワード認証チェック
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'auth.html';
+        }
+    </script>
     <div class="container">
         <h1>KPJ Betimo（競輪デジタル投票）運営体制概要（2025年10月ソフトローンチ）</h1>
         

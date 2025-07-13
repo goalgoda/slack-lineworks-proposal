@@ -307,6 +307,12 @@
     </style>
 </head>
 <body>
+    <script>
+        // パスワード認証チェック
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'auth.html';
+        }
+    </script>
     <div class="container">
         <header class="header">
             <h1>Slack × LINE WORKS</h1>
